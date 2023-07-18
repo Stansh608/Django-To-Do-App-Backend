@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Task
@@ -6,6 +7,16 @@ from .models import Task
 from .serializers import TaskSerializer
 # Create your views here.
 
+@api_view(['GET'])
+def urlsOverview(request):
+    urls={  "task-list":"list of all tasks",
+          "task-detail/<str:pk>":"get a single task and its detail",
+          "task-add/":"Add tasks",
+          "task-update/<str:pk>":"update task with pk",
+          "task-delete/<str:pk>":"delete a task with pk",
+          
+    }
+    return Response(urls)
 #get tasks
 @api_view(['GET'])
 def taskView(request):

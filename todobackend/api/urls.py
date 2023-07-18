@@ -4,15 +4,16 @@ from . import views
 #URL endpoints
 urlpatterns = [
     # A list of tasks
-    path('', views.taskView, name="task-list"),
+    path('', views.urlsOverview, name="urls-endpoint"),
+    path('task-list', views.taskView, name="task-list"),
     
     path('task-detail/<str:pk>', views.taskDetail, name="task-detail"),
     #add task
-    path('add-task/', views.postTask, name="add-task"),
+    path('task-add/', views.postTask, name="task-add"),
     
     #update Task
-    path('update-task/<str:pk>', views.updateTask, name="update-task"),
+    path('task-update/<str:pk>', views.updateTask, name="task-update"),
     
     #Delete TAsk
-    path('delete-task/<str:pk>', views.deleteTask, name="delete-task"),
+    path('task-delete/<str:pk>', views.deleteTask, name="task-delete"),
 ]
